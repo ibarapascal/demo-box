@@ -54,6 +54,21 @@ export const Content = ({
     setCurrentTitle();
   }, [dispatch, history]);
 
+  /**
+   * Declaratively loading javascript
+   * Used because the script in `index.html` won't re-run after react-router-dom changed
+   * @param src
+   */
+  const loadScript = (src: string) => {
+    const tag = document.createElement('script');
+    tag.async = false;
+    tag.src = src;
+    document.getElementsByTagName('body')[0].appendChild(tag);
+  };
+  loadScript(
+    'https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js',
+  );
+
   console.log('hot:content: ' + title);
 
   return (

@@ -18,7 +18,7 @@ Although the storybook, hugo like libs seem to be good solutions, I decided to b
 
 From the tabs in the left hand.
 
-Each demo/story has a unique URL to navigate.  
+Each demo/story has a unique URL to navigate.
 
 Complex search via title, tags, stars would be supported later.
 
@@ -28,8 +28,9 @@ Complex search via title, tags, stars would be supported later.
 - [x] 1.all markdown files in one directory compile to jsx components.  
 - [x] 2.markdown theme/styles.  
 - [x] 3.title inside the URL, tabs bounded.  
-- [x] 4.~~generative exposed name~~, single source title.
+- [x] 4.~~generative exposed name~~, single source title.  
 - [x] 5.component templates with configs.  
 - [ ] 6.search via the title.  
 - [ ] 7.complex search, component configs UI.  
 - [ ] 8.optimization.  
+- [ ] 9.gh-pages publish.  
