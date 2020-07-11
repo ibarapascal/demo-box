@@ -1,0 +1,49 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true
+  },
+  "plugins": [
+    "react",
+    "@typescript-eslint",
+    "prettier"
+  ],
+  "extends": [
+    "alloy",
+    "alloy/react",
+    "alloy/typescript"
+  ],
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly"
+  },
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "settings": {
+    "react": {
+      "version": "999.999.999"
+    }
+  },
+  "rules": {
+    // enable `new Array()`
+    "no-array-constructor": 0,
+    // disabled for `use arrow functions to return JSX that will not be held in an iterable` as a default guideline
+    "react/jsx-key": 0, 
+    // enable `@typescript-eslint/no-unused-vars` as below
+    "no-unused-vars": 0,
+    // disabled for defensive programming
+    "@typescript-eslint/no-unused-vars": 0,
+    // disabled for reserved conservative preparation
+    "@typescript-eslint/no-empty-interface": 0,
+    // enabled for BP implements of optional-chaining
+    "@typescript-eslint/no-non-null-asserted-optional-chain": 2,
+    // disabled for class type
+    "@typescript-eslint/explicit-member-accessibility": 0
+  }
+}
