@@ -1,4 +1,4 @@
-# Getting Start
+# Getting Started
 
 ## What's in here
 
@@ -26,8 +26,8 @@ Complex search via title, tags, stars would be supported later.
 
 - [x] 0.CRA with md file imported.  
 - [x] 1.all markdown files in one directory compile to jsx components.  
-- [ ] 2.title inside the URL, tabs bounded.  
-- [ ] 3.markdown theme/styles.
+- [x] 2.markdown theme/styles.  
+- [ ] 3.title inside the URL, tabs bounded.  
 - [ ] 4.search via the title.  
 - [ ] 5.component templates with configs.  
 - [ ] 6.complex search.  

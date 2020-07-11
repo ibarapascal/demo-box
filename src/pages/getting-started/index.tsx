@@ -3,11 +3,11 @@ import * as React from 'react';
 
 import { Content } from '../../components/content.view';
 
-export const SampleDemo = (props: any) => {
+export const GettingStarted = (props: any) => {
   return (
     <Content
-      title='SampleDemo'
-      type='demo'
+      title='GettingStarted'
+      type='blog'
       tags={['readme']}
       stars={0}
       updateDate={new Date('2020/07/12')}

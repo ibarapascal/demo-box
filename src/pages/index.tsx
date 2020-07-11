@@ -1,2 +1,2 @@
-export * from './getting-start';
+export * from './getting-started';
 export * from './sample-demo';

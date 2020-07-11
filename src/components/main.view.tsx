@@ -96,7 +96,6 @@ const VerticalTabs = ({ child }: TabsProps) => {
         variant='scrollable'
         value={value}
         onChange={handleChange}
-        aria-label='Vertical tabs example'
         className={classes.tabs}
       >
         {displayList.map((x, idx) => (

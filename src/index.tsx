@@ -85,7 +85,7 @@ class App extends React.Component<Props, State> {
             {Object.keys(All).map(x => (
               <Route exact path={`/${x}`} component={(All as any)[x]} key={x} />
             ))}
-            <Redirect to='/GettingStart' />
+            <Redirect to='/GettingStarted' />
           </Switch>
         </Main>
         <Dialog open={isDialogOpen()} onClose={onDialogClose}>
