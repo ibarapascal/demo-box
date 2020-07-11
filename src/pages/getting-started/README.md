@@ -27,7 +27,9 @@ Complex search via title, tags, stars would be supported later.
 - [x] 0.CRA with md file imported.  
 - [x] 1.all markdown files in one directory compile to jsx components.  
 - [x] 2.markdown theme/styles.  
-- [ ] 3.title inside the URL, tabs bounded.  
-- [ ] 4.search via the title.  
-- [ ] 5.component templates with configs.  
-- [ ] 6.complex search.  
+- [x] 3.title inside the URL, tabs bounded.  
+- [ ] 4.dynamic component name.
+- [ ] 5.search via the title.  
+- [ ] 6.component templates with configs.  
+- [ ] 7.complex search.  
+- [ ] 8.optimization.  
