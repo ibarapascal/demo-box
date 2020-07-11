@@ -28,8 +28,8 @@ Complex search via title, tags, stars would be supported later.
 - [x] 1.all markdown files in one directory compile to jsx components.  
 - [x] 2.markdown theme/styles.  
 - [x] 3.title inside the URL, tabs bounded.  
-- [ ] 4.dynamic component name.
-- [ ] 5.search via the title.  
-- [ ] 6.component templates with configs.  
-- [ ] 7.complex search.  
+- [x] 4.~~generative exposed name~~, single source title.
+- [x] 5.component templates with configs.  
+- [ ] 6.search via the title.  
+- [ ] 7.complex search, component configs UI.  
 - [ ] 8.optimization.  

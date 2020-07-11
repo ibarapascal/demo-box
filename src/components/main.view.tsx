@@ -20,7 +20,7 @@ import * as All from '../pages';
 
 const useStyles = (props?: any) =>
   makeStyles(theme => ({
-    root: {
+    tabRoot: {
       flexGrow: 1,
       backgroundColor: theme.palette.background.paper,
       display: 'flex',
@@ -34,6 +34,8 @@ const useStyles = (props?: any) =>
       borderRight: `1px solid ${theme.palette.divider}`,
     },
     gridRoot: {
+      // prevent scrollbar caused page width position changes
+      overflowY: 'scroll',
       '& .MuiGrid-item': {
         padding: 0,
       },
@@ -43,7 +45,7 @@ const useStyles = (props?: any) =>
     },
     title: {
       fontSize: '21px',
-      color: '#000000',
+      color: '#FFFFFF',
     },
   }));
 
@@ -54,9 +56,11 @@ export const Main = (props: GridProps) => {
       <Grid item xs={12}>
         <Header />
       </Grid>
-      <Grid item xs={12}>
+      <Grid item xs={2} />
+      <Grid item xs={8}>
         <VerticalTabs child={props.children} />
       </Grid>
+      <Grid item xs={2} />
     </Grid>
   );
 };
@@ -103,7 +107,7 @@ const VerticalTabs = ({ child }: TabsProps) => {
   console.log('hot:main');
 
   return (
-    <div className={classes.root}>
+    <div className={classes.tabRoot}>
       <Tabs
         orientation='vertical'
         variant='scrollable'

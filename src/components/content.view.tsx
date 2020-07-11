@@ -18,14 +18,16 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-interface ContentProps {
-  title: string;
+export interface BaseProps {
   type: 'blog' | 'demo';
   tags: Array<string>;
   stars: 0 | 1 | 2 | 3 | 4 | 5;
   updateDate: Date;
-  children: any;
-  history: any;
+}
+interface ContentProps extends BaseProps {
+  title: string;
+  markdown: string;
+  history?: any;
 }
 
 export const Content = ({
@@ -34,7 +36,7 @@ export const Content = ({
   tags,
   stars,
   updateDate,
-  children,
+  markdown,
   history,
 }: ContentProps) => {
   const classes = useStyles();
@@ -52,7 +54,7 @@ export const Content = ({
     setCurrentTitle();
   }, [dispatch, history]);
 
-  console.log('hot:content');
+  console.log('hot:content: ' + title);
 
   return (
     <div className={`${classes.contentRoot} markdown-body`}>
@@ -74,7 +76,7 @@ export const Content = ({
           },
         }}
       >
-        {children}
+        {markdown}
       </Markdown>
     </div>
   );
