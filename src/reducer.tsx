@@ -14,17 +14,14 @@ const errorMessageReducer = createReducer<{}>(
   },
 );
 
-const localStorageReducer = createReducer<{}>(
-  {},
-  {
-    storeLocalStorageInput(state, action) {
-      return { ...state, [action.payload.item]: action.payload.value };
-    },
-    clearLocalStorageInput() {
-      return new LocalStorage();
-    },
+const localStorageReducer = createReducer<{}>(new LocalStorage(), {
+  storeLocalStorageInput(state, action) {
+    return { ...state, [action.payload.item]: action.payload.value };
   },
-);
+  clearLocalStorageInput() {
+    return new LocalStorage();
+  },
+});
 
 export const reducer = combineReducers({
   errorMessage: errorMessageReducer,

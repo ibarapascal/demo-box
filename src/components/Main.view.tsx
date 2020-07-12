@@ -1,6 +1,6 @@
 import * as React from 'react';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { v4 as uuid } from 'uuid';
 
 import {
   AppBar,
@@ -14,6 +14,7 @@ import {
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
+import { actions } from './Main.actions';
 import { RightSidebar } from './RightSidebar.view';
 
 const useStyles = (props?: any) =>
@@ -87,15 +88,26 @@ interface TabsProps {
 
 const VerticalTabs = ({ child, moduleNameList }: TabsProps) => {
   const classes = useStyles()();
+  const dispatch = useDispatch();
 
-  const displayList = moduleNameList.map(x => ({ name: x, id: uuid() }));
-  const name = window.location.href.split('/').pop();
-  const currentIdx = displayList.findIndex(x => x.name === name);
-
-  const [value, setValue] = React.useState(currentIdx);
+  const [value, setValue] = React.useState(0);
   const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
     setValue(newValue);
   };
+
+  React.useEffect(() => {
+    const name = window.location.href.split('/').pop();
+    const setCurrentTitle = async () =>
+      dispatch(
+        await actions.storeLocalStorageInput({
+          item: 'currentName',
+          value: name,
+        }),
+      );
+    setCurrentTitle();
+    const currentIdx = moduleNameList.findIndex(x => x === name);
+    currentIdx !== -1 && setValue(currentIdx);
+  }, [dispatch, moduleNameList]);
 
   const generateProps = (index: string | number) => {
     return {
@@ -104,7 +116,8 @@ const VerticalTabs = ({ child, moduleNameList }: TabsProps) => {
     };
   };
 
-  console.log('hot:main', moduleNameList);
+  process.env.NODE_ENV === 'development' &&
+    console.log('hot:main', value, moduleNameList);
 
   return (
     <div className={classes.tabRoot}>
@@ -115,12 +128,12 @@ const VerticalTabs = ({ child, moduleNameList }: TabsProps) => {
         onChange={handleChange}
         className={classes.tabs}
       >
-        {displayList.map((x, idx) => (
+        {moduleNameList.map((x, idx) => (
           <Tab
-            label={x.name.replace(/([A-Z])/g, ' $1').trim()}
+            label={x.replace(/([A-Z])/g, ' $1').trim()}
             component={Link}
-            to={`/${x.name}`}
-            key={x.id}
+            to={`/${x}`}
+            key={idx}
             {...generateProps(idx)}
           />
         ))}

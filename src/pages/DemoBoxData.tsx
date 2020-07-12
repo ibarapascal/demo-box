@@ -11,14 +11,14 @@ export const DemoBoxData: Array<DataItem> = [
     title: 'GettingStarted',
     type: 'blog',
     tags: ['readme'],
-    stars: 4,
+    stars: 5,
     updateDate: new Date('2020/07/12'),
   },
   {
     title: 'SampleDemo',
     type: 'demo',
-    tags: ['readme'],
+    tags: ['readme', 'Sample String Tag', 'sample tag', 'sample icon tag'],
     stars: 4,
-    updateDate: new Date('2020/07/12'),
+    updateDate: new Date('2020/07/11'),
   },
 ];

@@ -109,7 +109,7 @@ class App extends React.Component<Props, State> {
       dynamicImport();
     }, []);
 
-    console.log('hot:index');
+    process.env.NODE_ENV === 'development' && console.log('hot:index');
 
     return (
       <>
@@ -118,7 +118,7 @@ class App extends React.Component<Props, State> {
             {modulesNameList.map((x, idx) => (
               <Route exact path={`/${x}`} component={modules[idx]} key={x} />
             ))}
-            <Redirect to='/GettingStarted' />
+            {modulesNameList.length !== 0 && <Redirect to='/GettingStarted' />}
           </Switch>
         </Main>
         <Dialog open={isDialogOpen()} onClose={onDialogClose}>

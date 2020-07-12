@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useSelector } from 'react-redux';
 import StarRatingComponent from 'react-star-rating-component';
 
 import {
@@ -14,6 +15,10 @@ import EventNoteIcon from '@material-ui/icons/EventNote';
 import FolderOpenIcon from '@material-ui/icons/FolderOpen';
 import StarsIcon from '@material-ui/icons/Stars';
 import UpdateIcon from '@material-ui/icons/Update';
+
+import { TagsList } from '../constants';
+import { Store } from '../interface/redux/Store';
+import { DemoBoxData } from '../pages/DemoBoxData';
 
 const useStyles = (props?: any) =>
   makeStyles(theme => {
@@ -56,22 +61,28 @@ const useStyles = (props?: any) =>
 
 export const RightSidebar = () => {
   const classes = useStyles()();
+  const { currentName } = useSelector((store: Store) => store.localStorage);
+  const data = DemoBoxData.find(
+    x => x.title.toUpperCase() === currentName?.toUpperCase(),
+  );
+
+  process.env.NODE_ENV === 'development' &&
+    console.log('hot:right: ' + currentName);
+
   const stepsList = [
     {
       id: '1',
       label: 'Content Type',
-      attr: 'type',
       icon: <FolderOpenIcon />,
-      content: <Typography>Blog</Typography>,
+      content: <Typography>{data?.type}</Typography>,
     },
     {
       id: '2',
       label: 'Updated Date',
-      attr: 'updateDate',
       icon: <UpdateIcon />,
       content: (
         <Typography>
-          {new Date('2020/07/13').toISOString().split('T')[0].toString()}
+          {data?.updateDate.toISOString().split('T')[0].toString()}
         </Typography>
       ),
     },
@@ -84,7 +95,7 @@ export const RightSidebar = () => {
         <div className={classes.stars}>
           <StarRatingComponent
             name='stars'
-            value={4}
+            value={data?.stars ?? 0}
             starCount={5}
             starColor='#FF8E53'
             emptyStarColor='#DDDDDD'
@@ -100,26 +111,28 @@ export const RightSidebar = () => {
       icon: <EventNoteIcon />,
       content: (
         <div className={classes.tags}>
-          <Chip avatar={<Avatar>R</Avatar>} label='React.js' />
-          <Chip
-            avatar={
-              <Avatar src='https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/320px-React-icon.svg.png' />
-            }
-            label='React.js'
-          />
-          <Chip
-            avatar={
-              <Avatar>
-                <StarsIcon />
-              </Avatar>
-            }
-            label='React.js'
-          />
-          <Chip label='React.js' />
-          <Chip label='Reaaaaaaaaaaaaaact.js' />
-          <Chip avatar={<Avatar>R</Avatar>} label='Reaaaaaaaaaaaaaact.js' />
-          <Chip avatar={<Avatar>R</Avatar>} label='Reaaaaaaaaaaaaaact.js' />
-          <Chip avatar={<Avatar>R</Avatar>} label='Reaaaaaaaaaaaaaact.js' />
+          {data?.tags.map(x => {
+            const item = TagsList.find(
+              y =>
+                y.name.toUpperCase() === x.toUpperCase() ||
+                y?.mergeName?.some(z => z.toUpperCase() === x.toUpperCase()),
+            );
+            const configAvatar = () => {
+              if (item?.avatarIcon || item?.avatarStr) {
+                return <Avatar>{item?.avatarIcon || item?.avatarStr}</Avatar>;
+              } else if (item?.avatarUrl) {
+                return <Avatar src={item?.avatarUrl} />;
+              } else {
+                return;
+              }
+            };
+            const config = {
+              label: item?.name,
+              key: item?.uuid,
+              avatar: configAvatar(),
+            };
+            return <Chip {...config} />;
+          })}
         </div>
       ),
     },
@@ -137,7 +150,7 @@ export const RightSidebar = () => {
   return (
     <div className={classes.rightSidebarRoot}>
       <Stepper activeStep={3} orientation='vertical'>
-        {stepsList.map((item, index) => (
+        {stepsList.map(item => (
           <Step key={item.id}>
             <StepLabel icon={item.icon}>{item.label}</StepLabel>
             <div className={classes.rightSidebarContent}>

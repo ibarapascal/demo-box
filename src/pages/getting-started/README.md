@@ -33,7 +33,7 @@ Complex search via title, tags, stars would be supported later.
 - [x] 6.optimization.  
 - [x] 7.sidebar component configs UI.  
 - [x] 8.dynamic import from dir.  
-- [ ] 9.prevent child from rendering while import.  
-- [ ] 10.bind data, search via the title.  
-- [ ] 11.complex search UI.  
+- [x] 9.prevent child from rendering while import.  
+- [x] 10.bind data to sidebar.  
+- [ ] 11.search via the title, complex search.  
 - [ ] 12.gh-pages publish.  
