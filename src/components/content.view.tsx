@@ -1,11 +1,7 @@
 import Markdown from 'markdown-to-jsx';
 import * as React from 'react';
-import { useDispatch } from 'react-redux';
 
 import { makeStyles } from '@material-ui/core/styles';
-
-import UrlService from '../services/UrlService';
-import { actions } from './content.actions';
 
 const useStyles = makeStyles(theme => ({
   contentRoot: {
@@ -51,20 +47,6 @@ export const Content = ({
   history,
 }: ContentProps) => {
   const classes = useStyles();
-  const dispatch = useDispatch();
-
-  React.useEffect(() => {
-    const title = UrlService.acquireName(history);
-    const setCurrentTitle = async () =>
-      dispatch(
-        await actions.storeLocalStorageInput({
-          item: 'currentName',
-          value: title,
-        }),
-      );
-    setCurrentTitle();
-  }, [dispatch, history]);
-
   /**
    * Declaratively loading javascript
    * Used because the script in `index.html` won't re-run after react-router-dom changed

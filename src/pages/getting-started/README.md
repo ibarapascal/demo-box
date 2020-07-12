@@ -32,5 +32,5 @@ Complex search via title, tags, stars would be supported later.
 - [x] 5.component templates with configs.  
 - [ ] 6.search via the title.  
 - [ ] 7.complex search, component configs UI.  
-- [ ] 8.optimization.  
+- [x] 8.optimization.  
 - [ ] 9.gh-pages publish.  

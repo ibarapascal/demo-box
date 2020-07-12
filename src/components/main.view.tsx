@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { v4 as uuid } from 'uuid';
 
@@ -15,7 +14,6 @@ import {
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
-import { Store } from '../interface/redux/Store';
 import * as All from '../pages';
 
 const useStyles = (props?: any) =>
@@ -83,18 +81,15 @@ interface TabsProps {
 const VerticalTabs = ({ child }: TabsProps) => {
   const classes = useStyles()();
 
-  const { currentName } = useSelector((store: Store) => store.localStorage);
   const displayList = Object.keys(All).map(x => ({ name: x, id: uuid() }));
+  const name = window.location.href.split('/').pop();
+  let currentIdx = displayList.findIndex(x => x.name === name);
 
-  const [value, setValue] = React.useState(0);
-  React.useEffect(() => {
-    const currentIdx = displayList.findIndex(x => x.name === currentName);
-    currentIdx !== -1 && value !== currentIdx && setValue(currentIdx);
-  }, [currentName, displayList, value]);
-
+  const [value, setValue] = React.useState(currentIdx);
   const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
     setValue(newValue);
   };
+
   const generateProps = (index: string | number) => {
     return {
       id: `vertical-tab-${index}`,
