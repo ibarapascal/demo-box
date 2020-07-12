@@ -31,9 +31,7 @@ import {
 import { Main } from './components/Main.view';
 import { Store } from './interface/redux/Store';
 import { DemoBoxData } from './pages/DemoBoxData';
-// import * as All from './pages';
 import { reducer } from './reducer';
-import { pascalToLisp } from './services/Transfer';
 
 const theme = createMuiTheme({});
 
@@ -92,8 +90,7 @@ class App extends React.Component<Props, State> {
         try {
           await Promise.all(
             DemoBoxData.map(async x => {
-              const lispName = pascalToLisp(x.title);
-              const module = await import(`./pages/${lispName}`);
+              const module = await import(`./pages/${x.title}`);
               // Need to set in-place
               const name = Object.keys(module)[0];
               tempModulesNameList.push(name);

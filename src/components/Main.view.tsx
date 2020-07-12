@@ -36,12 +36,18 @@ const useStyles = (props?: any) =>
       backgroundColor: theme.palette.background.paper,
       display: 'flex',
       height: 'calc(100vh - 75px)',
+      '& .MuiTab-root': {
+        minWidth: 0,
+        maxWidth: '100%',
+      },
       '& .MuiTab-wrapper': {
         textTransform: 'none',
-        alignItems: 'start',
+        alignItems: 'flex-end',
+        whiteSpace: 'nowrap',
       },
     },
     tabs: {
+      width: '40%',
       borderRight: `1px solid ${theme.palette.divider}`,
     },
   }));
@@ -57,8 +63,7 @@ export const Main = ({ moduleNameList, ...props }: MainProps) => {
       <Grid item xs={12}>
         <Header />
       </Grid>
-      <Grid item xs={2} />
-      <Grid item xs={8}>
+      <Grid item xs={10}>
         <VerticalTabs child={props.children} moduleNameList={moduleNameList} />
       </Grid>
       <Grid item xs={2}>
@@ -106,8 +111,8 @@ const VerticalTabs = ({ child, moduleNameList }: TabsProps) => {
       );
     setCurrentTitle();
     const currentIdx = moduleNameList.findIndex(x => x === name);
-    currentIdx !== -1 && setValue(currentIdx);
-  }, [dispatch, moduleNameList]);
+    currentIdx !== -1 && currentIdx !== value && setValue(currentIdx);
+  }, [dispatch, value, moduleNameList]);
 
   const generateProps = (index: string | number) => {
     return {
