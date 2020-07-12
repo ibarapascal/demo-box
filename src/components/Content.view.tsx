@@ -34,7 +34,6 @@ export interface BaseProps {
 interface ContentProps extends BaseProps {
   title: string;
   markdown: string;
-  history?: any;
 }
 
 export const Content = ({
@@ -44,7 +43,6 @@ export const Content = ({
   stars,
   updateDate,
   markdown,
-  history,
 }: ContentProps) => {
   const classes = useStyles();
   /**

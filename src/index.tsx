@@ -28,7 +28,7 @@ import {
   ThemeProvider
 } from '@material-ui/core/styles';
 
-import { Main } from './components/main.view';
+import { Main } from './components/Main.view';
 import { Store } from './interface/redux/Store';
 import * as All from './pages';
 import { reducer } from './reducer';

@@ -4,7 +4,7 @@ import * as React from 'react';
 import {
   BaseProps,
   Content
-} from '../../components/content.view';
+} from '../../components/Content.view';
 
 export class SampleDemo extends React.Component<any> {
   config: BaseProps = {

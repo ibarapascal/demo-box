@@ -15,9 +15,22 @@ import {
 import { makeStyles } from '@material-ui/core/styles';
 
 import * as All from '../pages';
+import { RightSidebar } from './RightSidebar.view';
 
 const useStyles = (props?: any) =>
   makeStyles(theme => ({
+    gridRoot: {
+      '& .MuiGrid-item': {
+        padding: 0,
+      },
+    },
+    headerRoot: {
+      background: 'linear-gradient(45deg, #F50057 30%, #FF8E53 90%)',
+    },
+    title: {
+      fontSize: '21px',
+      color: '#FFFFFF',
+    },
     tabRoot: {
       flexGrow: 1,
       backgroundColor: theme.palette.background.paper,
@@ -30,18 +43,6 @@ const useStyles = (props?: any) =>
     },
     tabs: {
       borderRight: `1px solid ${theme.palette.divider}`,
-    },
-    gridRoot: {
-      '& .MuiGrid-item': {
-        padding: 0,
-      },
-    },
-    headerRoot: {
-      background: 'linear-gradient(45deg, #F50057 30%, #FF8E53 90%)',
-    },
-    title: {
-      fontSize: '21px',
-      color: '#FFFFFF',
     },
   }));
 
@@ -56,7 +57,9 @@ export const Main = (props: GridProps) => {
       <Grid item xs={8}>
         <VerticalTabs child={props.children} />
       </Grid>
-      <Grid item xs={2} />
+      <Grid item xs={2}>
+        <RightSidebar />
+      </Grid>
     </Grid>
   );
 };
@@ -83,7 +86,7 @@ const VerticalTabs = ({ child }: TabsProps) => {
 
   const displayList = Object.keys(All).map(x => ({ name: x, id: uuid() }));
   const name = window.location.href.split('/').pop();
-  let currentIdx = displayList.findIndex(x => x.name === name);
+  const currentIdx = displayList.findIndex(x => x.name === name);
 
   const [value, setValue] = React.useState(currentIdx);
   const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {

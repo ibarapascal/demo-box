@@ -30,7 +30,8 @@ Complex search via title, tags, stars would be supported later.
 - [x] 3.title inside the URL, tabs bounded.  
 - [x] 4.~~generative exposed name~~, single source title.  
 - [x] 5.component templates with configs.  
-- [ ] 6.search via the title.  
-- [ ] 7.complex search, component configs UI.  
-- [x] 8.optimization.  
-- [ ] 9.gh-pages publish.  
+- [x] 6.optimization.  
+- [x] 7.sidebar component configs UI.  
+- [ ] 8.bind data, search via the title.  
+- [ ] 9.complex search UI.  
+- [ ] 10.gh-pages publish.  
