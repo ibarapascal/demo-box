@@ -33,7 +33,7 @@ export interface BaseProps {
 }
 interface ContentProps extends BaseProps {
   title: string;
-  markdown: string;
+  children: React.ReactNode;
 }
 
 export const Content = ({
@@ -42,7 +42,7 @@ export const Content = ({
   tags,
   stars,
   updateDate,
-  markdown,
+  children,
 }: ContentProps) => {
   const classes = useStyles();
   /**
@@ -63,27 +63,36 @@ export const Content = ({
   console.log('hot:content: ' + title);
 
   return (
-    <div className={`${classes.contentRoot} markdown-body`}>
-      <Markdown
-        options={{
-          overrides: {
-            pre: {
-              component: '',
-              props: {
-                className: `${classes.markdownPre}`,
-              },
-            },
-            code: {
-              component: '',
-              props: {
-                className: `prettyprint`,
-              },
+    <div className={`${classes.contentRoot} markdown-body`}>{children}</div>
+  );
+};
+
+interface MarkdownContentProps {
+  path: string;
+}
+
+export const MarkdownContent = ({ path }: MarkdownContentProps) => {
+  const classes = useStyles();
+  return (
+    <Markdown
+      options={{
+        overrides: {
+          pre: {
+            component: '',
+            props: {
+              className: `${classes.markdownPre}`,
             },
           },
-        }}
-      >
-        {markdown}
-      </Markdown>
-    </div>
+          code: {
+            component: '',
+            props: {
+              className: `prettyprint`,
+            },
+          },
+        },
+      }}
+    >
+      {path}
+    </Markdown>
   );
 };

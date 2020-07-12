@@ -50,9 +50,6 @@ const useStyles = (props?: any) =>
           margin: 3,
           backgroundColor: '#EEEEEE',
         },
-        '& .MuiChip-avatar': {
-          backgroundColor: '#CCCCCC',
-        },
       },
     };
   });

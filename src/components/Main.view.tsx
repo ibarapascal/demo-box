@@ -14,7 +14,6 @@ import {
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
-import * as All from '../pages';
 import { RightSidebar } from './RightSidebar.view';
 
 const useStyles = (props?: any) =>
@@ -46,7 +45,11 @@ const useStyles = (props?: any) =>
     },
   }));
 
-export const Main = (props: GridProps) => {
+interface MainProps extends GridProps {
+  moduleNameList: Array<string>;
+}
+
+export const Main = ({ moduleNameList, ...props }: MainProps) => {
   const classes = useStyles()();
   return (
     <Grid container spacing={2} className={classes.gridRoot} {...props}>
@@ -55,7 +58,7 @@ export const Main = (props: GridProps) => {
       </Grid>
       <Grid item xs={2} />
       <Grid item xs={8}>
-        <VerticalTabs child={props.children} />
+        <VerticalTabs child={props.children} moduleNameList={moduleNameList} />
       </Grid>
       <Grid item xs={2}>
         <RightSidebar />
@@ -79,12 +82,13 @@ const Header = (props: CardProps) => {
 
 interface TabsProps {
   child: React.ReactNode;
+  moduleNameList: Array<string>;
 }
 
-const VerticalTabs = ({ child }: TabsProps) => {
+const VerticalTabs = ({ child, moduleNameList }: TabsProps) => {
   const classes = useStyles()();
 
-  const displayList = Object.keys(All).map(x => ({ name: x, id: uuid() }));
+  const displayList = moduleNameList.map(x => ({ name: x, id: uuid() }));
   const name = window.location.href.split('/').pop();
   const currentIdx = displayList.findIndex(x => x.name === name);
 
@@ -100,7 +104,7 @@ const VerticalTabs = ({ child }: TabsProps) => {
     };
   };
 
-  console.log('hot:main');
+  console.log('hot:main', moduleNameList);
 
   return (
     <div className={classes.tabRoot}>

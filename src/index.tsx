@@ -30,8 +30,10 @@ import {
 
 import { Main } from './components/Main.view';
 import { Store } from './interface/redux/Store';
-import * as All from './pages';
+import { DemoBoxData } from './pages/DemoBoxData';
+// import * as All from './pages';
 import { reducer } from './reducer';
+import { pascalToLisp } from './services/Transfer';
 
 const theme = createMuiTheme({});
 
@@ -78,12 +80,43 @@ class App extends React.Component<Props, State> {
         payload: {},
       });
     };
+
+    const [modules, setModules] = React.useState<Array<any>>([]);
+    const [modulesNameList, setModulesNameList] = React.useState<Array<string>>(
+      [],
+    );
+    React.useEffect(() => {
+      const dynamicImport = async () => {
+        const tempModules: Array<any> = [];
+        const tempModulesNameList: Array<string> = [];
+        try {
+          await Promise.all(
+            DemoBoxData.map(async x => {
+              const lispName = pascalToLisp(x.title);
+              const module = await import(`./pages/${lispName}`);
+              // Need to set in-place
+              const name = Object.keys(module)[0];
+              tempModulesNameList.push(name);
+              tempModules.push(module[name]);
+            }),
+          );
+        } catch {
+          console.log('Import failed');
+        }
+        setModulesNameList(tempModulesNameList);
+        setModules(tempModules);
+      };
+      dynamicImport();
+    }, []);
+
+    console.log('hot:index');
+
     return (
       <>
-        <Main>
+        <Main moduleNameList={modulesNameList}>
           <Switch>
-            {Object.keys(All).map(x => (
-              <Route exact path={`/${x}`} component={(All as any)[x]} key={x} />
+            {modulesNameList.map((x, idx) => (
+              <Route exact path={`/${x}`} component={modules[idx]} key={x} />
             ))}
             <Redirect to='/GettingStarted' />
           </Switch>

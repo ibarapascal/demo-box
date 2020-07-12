@@ -3,7 +3,8 @@ import * as React from 'react';
 
 import {
   BaseProps,
-  Content
+  Content,
+  MarkdownContent
 } from '../../components/Content.view';
 
 export class GettingStarted extends React.Component<any> {
@@ -15,12 +16,9 @@ export class GettingStarted extends React.Component<any> {
   };
   render() {
     return (
-      <Content
-        {...this.config}
-        {...this.props}
-        title={this.constructor.name}
-        markdown={raw('./README.md')}
-      />
+      <Content {...this.config} {...this.props} title={this.constructor.name}>
+        <MarkdownContent path={raw('./README.md')} />
+      </Content>
     );
   }
 }
