@@ -24,7 +24,7 @@ const useStyles = (props?: any) =>
       flexGrow: 1,
       backgroundColor: theme.palette.background.paper,
       display: 'flex',
-      height: 'calc(100vh - 100px)',
+      height: 'calc(100vh - 75px)',
       '& .MuiTab-wrapper': {
         textTransform: 'none',
         alignItems: 'start',
@@ -34,14 +34,12 @@ const useStyles = (props?: any) =>
       borderRight: `1px solid ${theme.palette.divider}`,
     },
     gridRoot: {
-      // prevent scrollbar caused page width position changes
-      overflowY: 'scroll',
       '& .MuiGrid-item': {
         padding: 0,
       },
     },
     headerRoot: {
-      background: 'linear-gradient(45deg, #FF1A6A 30%, #FF8E53 90%)',
+      background: 'linear-gradient(45deg, #F50057 30%, #FF8E53 90%)',
     },
     title: {
       fontSize: '21px',

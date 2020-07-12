@@ -11,6 +11,17 @@ const useStyles = makeStyles(theme => ({
   contentRoot: {
     width: '100%',
     padding: 20,
+    overflowY: 'scroll',
+    '&::-webkit-scrollbar': {
+      // set to 0 to hide scroll bar while still being able to scroll
+      width: 3,
+    },
+    '&::-webkit-scrollbar-track': {
+      background: '#FF8E53',
+    },
+    '&::-webkit-scrollbar-thumb': {
+      background: 'linear-gradient(45deg, #F50057 10%, #FF8E53 90%)',
+    },
   },
   markdownPre: {
     border: '1px solid #DDDDDD',
