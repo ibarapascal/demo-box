@@ -7,12 +7,14 @@ import {
   CardProps,
   Grid,
   GridProps,
+  IconButton,
   Tab,
   Tabs,
   Toolbar,
   Typography
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import { createSvgIcon } from '@material-ui/core/utils';
 
 import { actions } from './Main.actions';
 import { RightSidebar } from './RightSidebar.view';
@@ -26,9 +28,22 @@ const useStyles = (props?: any) =>
     },
     headerRoot: {
       background: 'linear-gradient(45deg, #F50057 30%, #FF8E53 90%)',
+      '& .MuiToolbar-root': {
+        display: 'block',
+        height: 48,
+        minHeight: 0,
+      },
     },
-    title: {
+    headerTitle: {
       fontSize: '21px',
+      color: '#FFFFFF',
+      display: 'flex',
+      height: '100%',
+      float: 'left',
+      alignItems: 'center',
+    },
+    headerIcon: {
+      float: 'right',
       color: '#FFFFFF',
     },
     tabRoot: {
@@ -44,6 +59,9 @@ const useStyles = (props?: any) =>
         textTransform: 'none',
         alignItems: 'flex-end',
         whiteSpace: 'nowrap',
+      },
+      '& .MuiTouchRipple-root': {
+        color: '#FF80AC',
       },
     },
     tabs: {
@@ -75,12 +93,26 @@ export const Main = ({ moduleNameList, ...props }: MainProps) => {
 
 const Header = (props: CardProps) => {
   const classes = useStyles()();
+  const GithubIcon = createSvgIcon(
+    <path d='M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2 0 1.9 1.2 1.9 1.2 1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6 0-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.8 0 3.2.9.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.5.4.9 1 .9 2.2v3.3c0 .3.1.7.8.6A12 12 0 0 0 12 .3' />,
+    'github',
+  );
+  const onClickIconButton = () => {
+    window.open('https://github.com/ibarapascal/demo-box', '_blank');
+  };
   return (
     <AppBar position='static' className={classes.headerRoot}>
       <Toolbar>
-        <Typography variant='h6' className={classes.title}>
+        <Typography variant='h6' className={classes.headerTitle}>
           Demo Box
         </Typography>
+        <IconButton
+          aria-label='github'
+          className={classes.headerIcon}
+          onClick={onClickIconButton}
+        >
+          <GithubIcon />
+        </IconButton>
       </Toolbar>
     </AppBar>
   );
