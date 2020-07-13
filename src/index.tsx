@@ -30,7 +30,7 @@ import {
 
 import { Main } from './components/Main.view';
 import { Store } from './interface/redux/Store';
-import { DemoBoxData } from './pages/DemoBoxData';
+import { PageRegister } from './PageRegister';
 import { reducer } from './reducer';
 
 const theme = createMuiTheme({});
@@ -79,28 +79,25 @@ class App extends React.Component<Props, State> {
       });
     };
 
-    const [modules, setModules] = React.useState<Array<any>>([]);
-    const [modulesNameList, setModulesNameList] = React.useState<Array<string>>(
-      [],
-    );
+    const [modules, setModules] = React.useState<
+      Array<{ m: any; name: string }>
+    >([]);
+
     React.useEffect(() => {
       const dynamicImport = async () => {
-        const tempModules: Array<any> = [];
-        const tempModulesNameList: Array<string> = [];
+        const tempModules: Array<{ m: any; name: string }> = [];
         try {
           await Promise.all(
-            DemoBoxData.map(async x => {
+            PageRegister.map(async x => {
               const module = await import(`./pages/${x.title}`);
               // Need to set in-place
               const name = Object.keys(module)[0];
-              tempModulesNameList.push(name);
-              tempModules.push(module[name]);
+              tempModules.push({ m: module[name], name: name });
             }),
           );
         } catch {
           console.log('Import failed');
         }
-        setModulesNameList(tempModulesNameList);
         setModules(tempModules);
       };
       dynamicImport();
@@ -110,12 +107,12 @@ class App extends React.Component<Props, State> {
 
     return (
       <>
-        <Main moduleNameList={modulesNameList}>
+        <Main moduleNameList={modules.map(x => x.name)}>
           <Switch>
-            {modulesNameList.map((x, idx) => (
-              <Route exact path={`/${x}`} component={modules[idx]} key={x} />
+            {modules.map((x, idx) => (
+              <Route exact path={`/${x.name}`} component={x.m} key={x.name} />
             ))}
-            {modulesNameList.length !== 0 && <Redirect to='/GettingStarted' />}
+            {modules.length !== 0 && <Redirect to='/GettingStarted' />}
           </Switch>
         </Main>
         <Dialog open={isDialogOpen()} onClose={onDialogClose}>

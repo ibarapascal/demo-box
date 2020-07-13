@@ -18,7 +18,7 @@ import UpdateIcon from '@material-ui/icons/Update';
 
 import { TagsList } from '../constants';
 import { Store } from '../interface/redux/Store';
-import { DemoBoxData } from '../pages/DemoBoxData';
+import { PageRegister } from '../PageRegister';
 
 const useStyles = (props?: any) =>
   makeStyles(theme => {
@@ -62,7 +62,7 @@ const useStyles = (props?: any) =>
 export const RightSidebar = () => {
   const classes = useStyles()();
   const { currentName } = useSelector((store: Store) => store.localStorage);
-  const data = DemoBoxData.find(
+  const data = PageRegister.find(
     x => x.title.toUpperCase() === currentName?.toUpperCase(),
   );
 

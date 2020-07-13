@@ -11,8 +11,9 @@
 - [x] 8.dynamic import from dir.  
 - [x] 9.prevent child from rendering while import, useEffect/redirect condition.  
 - [x] 10.bind data to sidebar.  
-- [ ] 11.search via the title, complex search.  
-- [ ] 12.prevent unnecessary requests/cache.  
-- [ ] 13.visualization.  
-- [ ] 14.documentation/summary of dev process.  
-- [ ] 15.gh-pages publish.  
+- [ ] 11.default single markdown file import, maybe config from markdown.  
+- [ ] 12.search via the title, complex search.  
+- [ ] 13.prevent unnecessary requests/cache localStorage for js.  
+- [ ] 14.visualization.  
+- [ ] 15.documentation/summary of dev process.  
+- [ ] 16.gh-pages publish.  
