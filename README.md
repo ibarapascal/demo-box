@@ -6,11 +6,11 @@
 
 ## Instructions
 
-### 1. Providding
+### 1. Providing
 
 This is a place built to serve static blog/demo documents, it could provide:
 
-- Write markdown, render as documents with react.  
+- Markdown rendered as document inside react.  
 - Github/StackOverflow styled markdown.  
 - Syntax highlighting code piece with customized scripts/styles combination.  
 - Iframe in-place demo supported, like `codesandbox`.  
@@ -23,7 +23,7 @@ Aiming at the realistic demands, it's easy to use because:
 - Configs like rank/tags for the stories.  
 - Minimum constant definition for new stories.  
 - URL access for each story.  
-- [wip]Quick search/filter via the configs.  
+- [WIP] Quick search/filter via the configs.  
 
 ### 3. Tech
 
