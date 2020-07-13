@@ -92,7 +92,7 @@ class App extends React.Component<Props, State> {
               const module = await import(`./pages/${x.title}`);
               // Need to set in-place
               const name = Object.keys(module)[0];
-              tempModules.push({ m: module[name], name: name });
+              tempModules.push({ m: module[name], name: x.title });
             }),
           );
         } catch {

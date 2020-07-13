@@ -6,13 +6,12 @@ import {
   MarkdownContent
 } from '../../components/Content.view';
 
-export class SampleDemo extends React.Component<any> {
-  title = this.constructor.name;
-  render() {
+export default {
+  [window.name]: (props: any) => {
     return (
-      <Content {...this.props} title={this.title}>
+      <Content {...props}>
         <MarkdownContent path={raw('./README.md')} />
       </Content>
     );
-  }
-}
+  },
+}[window.name];

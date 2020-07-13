@@ -8,7 +8,7 @@
 - [x] 5.component templates with configs.  
 - [x] 6.optimization.  
 - [x] 7.sidebar UI with configs.  
-- [x] 8.dynamic import from dir.  
+- [x] 8.export unnamed component, dynamic import from dir.  
 - [x] 9.prevent child from rendering while import, useEffect/redirect condition.  
 - [x] 10.bind data to sidebar.  
 - [ ] 11.default single markdown file import, maybe config from markdown.  

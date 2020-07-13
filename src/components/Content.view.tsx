@@ -26,11 +26,10 @@ const useStyles = makeStyles(theme => ({
 }));
 
 interface ContentProps {
-  title: string;
   children: React.ReactNode;
 }
 
-export const Content = ({ title, children }: ContentProps) => {
+export const Content = ({ children }: ContentProps) => {
   const classes = useStyles();
   /**
    * Declaratively loading javascript
@@ -47,8 +46,7 @@ export const Content = ({ title, children }: ContentProps) => {
     'https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js',
   );
 
-  process.env.NODE_ENV === 'development' &&
-    console.log('hot:content: ' + title);
+  process.env.NODE_ENV === 'development' && console.log('hot:content');
 
   return (
     <div className={`${classes.contentRoot} markdown-body`}>{children}</div>
