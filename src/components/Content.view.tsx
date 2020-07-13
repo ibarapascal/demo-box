@@ -46,7 +46,7 @@ export const Content = ({ children }: ContentProps) => {
     'https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js',
   );
 
-  process.env.NODE_ENV === 'development' && console.log('hot:content');
+  process.env.NODE_ENV === 'development' && console.log('dev:content');
 
   return (
     <div className={`${classes.contentRoot} markdown-body`}>{children}</div>

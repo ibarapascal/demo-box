@@ -6,12 +6,10 @@ import {
   MarkdownContent
 } from '../../components/Content.view';
 
-export default {
-  [window.name]: (props: any) => {
-    return (
-      <Content {...props}>
-        <MarkdownContent path={raw('./README.md')} />
-      </Content>
-    );
-  },
-}[window.name];
+export default (props: any) => {
+  return (
+    <Content {...props}>
+      <MarkdownContent path={raw('./README.md')} />
+    </Content>
+  );
+};

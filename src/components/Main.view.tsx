@@ -154,7 +154,7 @@ const VerticalTabs = ({ child, moduleNameList }: TabsProps) => {
   };
 
   process.env.NODE_ENV === 'development' &&
-    console.log('hot:main', value, moduleNameList);
+    console.log('dev:main', value, moduleNameList);
 
   return (
     <div className={classes.tabRoot}>

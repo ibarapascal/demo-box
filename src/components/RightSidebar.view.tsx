@@ -67,7 +67,7 @@ export const RightSidebar = () => {
   );
 
   process.env.NODE_ENV === 'development' &&
-    console.log('hot:right: ' + currentName);
+    console.log('dev:right: ' + currentName);
 
   const stepsList = [
     {

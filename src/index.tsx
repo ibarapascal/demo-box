@@ -43,6 +43,11 @@ const store = createStore(
   composeWithDevTools(applyMiddleware(thunk)),
 );
 
+interface ModuleItem {
+  m: any;
+  name: string;
+}
+
 interface Props {}
 
 interface State {}
@@ -79,37 +84,32 @@ class App extends React.Component<Props, State> {
       });
     };
 
-    const [modules, setModules] = React.useState<
-      Array<{ m: any; name: string }>
-    >([]);
-
+    const [modules, setModules] = React.useState<Array<ModuleItem>>([]);
     React.useEffect(() => {
       const dynamicImport = async () => {
-        const tempModules: Array<{ m: any; name: string }> = [];
+        let temp: Array<ModuleItem> = [];
         try {
           await Promise.all(
             PageRegister.map(async x => {
               const module = await import(`./pages/${x.title}`);
-              // Need to set in-place
-              const name = Object.keys(module)[0];
-              tempModules.push({ m: module[name], name: x.title });
+              temp.push({ m: module['default'], name: x.title });
             }),
           );
         } catch {
           console.log('Import failed');
         }
-        setModules(tempModules);
+        setModules(temp);
       };
       dynamicImport();
     }, []);
 
-    process.env.NODE_ENV === 'development' && console.log('hot:index');
+    process.env.NODE_ENV === 'development' && console.log('dev:index');
 
     return (
       <>
         <Main moduleNameList={modules.map(x => x.name)}>
           <Switch>
-            {modules.map((x, idx) => (
+            {modules.map(x => (
               <Route exact path={`/${x.name}`} component={x.m} key={x.name} />
             ))}
             {modules.length !== 0 && <Redirect to='/GettingStarted' />}
