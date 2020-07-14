@@ -1,4 +1,4 @@
-# Sample Demo
+# Stand Alone Markdown
 
 This is a demo
 
