@@ -16,4 +16,3 @@
 - [ ] 13.prevent unnecessary requests/cache localStorage for js.  
 - [ ] 14.visualization.  
 - [ ] 15.documentation/summary of dev process.  
-- [ ] 16.gh-pages publish.  
