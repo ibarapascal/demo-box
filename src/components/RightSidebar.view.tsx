@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { useSelector } from 'react-redux';
 import StarRatingComponent from 'react-star-rating-component';
+import { v4 as uuidv4 } from 'uuid';
 
 import {
   Avatar,
@@ -127,8 +128,8 @@ export const RightSidebar = () => {
               }
             };
             const config = {
-              label: item?.name,
-              key: item?.uuid,
+              label: item?.name ?? x,
+              key: item?.uuid ?? uuidv4(),
               avatar: configAvatar(),
             };
             return <Chip {...config} />;
