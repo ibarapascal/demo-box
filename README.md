@@ -4,6 +4,8 @@
   <img src="https://hitcounter.pythonanywhere.com/count/tag.svg?url=https://github.com/ibarapascal/demo-box" alt="Hits">
 </div>
 
+Home Page: [https://ibarapascal.github.io/demo-box/](https://ibarapascal.github.io/demo-box/)
+
 ## Instructions
 
 ### 1. Providing
@@ -34,16 +36,7 @@ To achieve the above issues, it's using:
 - Design/implement using React, Material-UI, Redux, etc.  
 - Optimized performance.  
 
-### 4. Under Construction
-
-The project is still under construction, there would be more documentation about this in the near future, in the field of:
-
-- [WIP] One usage example served by `gh-pages` (which is I'm going to use with demo/blog contents).  
-- [WIP] One maintained branch to folk.
-- [WIP] Document about what it could do in specific.  
-- [WIP] Document about the steps of how to add your own stories.
-
-### 5. Others
+### 4. Others
 
 The current develop TODO items could be seem in here: [TODO list](https://github.com/ibarapascal/demo-box/blob/master/TODO.md)
 
@@ -53,5 +46,5 @@ Setting to [Contribute](https://github.com/ibarapascal/demo-box/blob/master/CONT
 
 ## Layout sample
 
-![Screenshot (770)](https://user-images.githubusercontent.com/30466424/87254159-88b96000-c4bb-11ea-9107-e43c006f44ae.png)
-![Screenshot (771)](https://user-images.githubusercontent.com/30466424/87254161-8b1bba00-c4bb-11ea-9894-739ba575aa9a.png)
+![Screenshot (793)](https://user-images.githubusercontent.com/30466424/89903727-fbd10600-dc22-11ea-8034-277956bda7dc.png)
+![Screenshot (794)](https://user-images.githubusercontent.com/30466424/89903910-389cfd00-dc23-11ea-82e7-d257fa462db5.png)
