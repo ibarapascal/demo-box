@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { useSelector } from 'react-redux';
 import StarRatingComponent from 'react-star-rating-component';
+import { v4 as uuidv4 } from 'uuid';
 
 import {
   Avatar,
@@ -69,6 +70,17 @@ export const RightSidebar = () => {
   process.env.NODE_ENV === 'development' &&
     console.log('dev:right: ' + currentName);
 
+  const acquireDate = () => {
+    const record = data?.updateDate;
+    if (record) {
+      const offset = record.getTimezoneOffset();
+      return new Date(record.getTime() - offset * 60 * 1000)
+        .toISOString()
+        .split('T')[0];
+    } else {
+      return 'No date record.';
+    }
+  };
   const stepsList = [
     {
       id: '1',
@@ -80,11 +92,7 @@ export const RightSidebar = () => {
       id: '2',
       label: 'Updated Date',
       icon: <UpdateIcon />,
-      content: (
-        <Typography>
-          {data?.updateDate.toISOString().split('T')[0].toString()}
-        </Typography>
-      ),
+      content: <Typography>{acquireDate()}</Typography>,
     },
     {
       id: '3',
@@ -127,8 +135,8 @@ export const RightSidebar = () => {
               }
             };
             const config = {
-              label: item?.name,
-              key: item?.uuid,
+              label: item?.name ?? x,
+              key: item?.uuid ?? uuidv4(),
               avatar: configAvatar(),
             };
             return <Chip {...config} />;

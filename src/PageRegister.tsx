@@ -24,4 +24,20 @@ export const PageRegister: Array<DataItem> = [
     updateDate: new Date('2020/07/11'),
     singleMd: false,
   },
+  {
+    title: 'ReactComponentCallback',
+    type: 'blog',
+    tags: ['react', 'callback', 'component design', 'design', 'event'],
+    stars: 5,
+    updateDate: new Date('2020/08/03'),
+    singleMd: true,
+  },
+  {
+    title: 'ReactStateManagement',
+    type: 'blog',
+    tags: ['react', 'state management', 'component design', 'design', 'redux'],
+    stars: 4,
+    updateDate: new Date('2020/08/07'),
+    singleMd: true,
+  },
 ];
