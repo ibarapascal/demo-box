@@ -1,0 +1,38 @@
+{
+  "files": {
+    "static/js/0.00d417b1.chunk.js": "/demo-box/static/js/0.00d417b1.chunk.js",
+    "static/js/0.00d417b1.chunk.js.map": "/demo-box/static/js/0.00d417b1.chunk.js.map",
+    "static/js/1.32e4f5fd.chunk.js": "/demo-box/static/js/1.32e4f5fd.chunk.js",
+    "static/js/1.32e4f5fd.chunk.js.map": "/demo-box/static/js/1.32e4f5fd.chunk.js.map",
+    "static/js/2.cf37e0d2.chunk.js": "/demo-box/static/js/2.cf37e0d2.chunk.js",
+    "static/js/2.cf37e0d2.chunk.js.map": "/demo-box/static/js/2.cf37e0d2.chunk.js.map",
+    "static/js/3.1478c5c2.chunk.js": "/demo-box/static/js/3.1478c5c2.chunk.js",
+    "static/js/3.1478c5c2.chunk.js.map": "/demo-box/static/js/3.1478c5c2.chunk.js.map",
+    "static/js/4.c94604d6.chunk.js": "/demo-box/static/js/4.c94604d6.chunk.js",
+    "static/js/4.c94604d6.chunk.js.map": "/demo-box/static/js/4.c94604d6.chunk.js.map",
+    "main.js": "/demo-box/static/js/main.8a2fce9f.chunk.js",
+    "main.js.map": "/demo-box/static/js/main.8a2fce9f.chunk.js.map",
+    "runtime-main.js": "/demo-box/static/js/runtime-main.5e47ddc2.js",
+    "runtime-main.js.map": "/demo-box/static/js/runtime-main.5e47ddc2.js.map",
+    "static/js/7.90c5f49d.chunk.js": "/demo-box/static/js/7.90c5f49d.chunk.js",
+    "static/js/7.90c5f49d.chunk.js.map": "/demo-box/static/js/7.90c5f49d.chunk.js.map",
+    "static/js/8.04fc849e.chunk.js": "/demo-box/static/js/8.04fc849e.chunk.js",
+    "static/js/8.04fc849e.chunk.js.map": "/demo-box/static/js/8.04fc849e.chunk.js.map",
+    "static/js/9.70bd0d50.chunk.js": "/demo-box/static/js/9.70bd0d50.chunk.js",
+    "static/js/9.70bd0d50.chunk.js.map": "/demo-box/static/js/9.70bd0d50.chunk.js.map",
+    "static/js/10.f2ce0453.chunk.js": "/demo-box/static/js/10.f2ce0453.chunk.js",
+    "static/js/10.f2ce0453.chunk.js.map": "/demo-box/static/js/10.f2ce0453.chunk.js.map",
+    "static/js/11.1f3b1c9b.chunk.js": "/demo-box/static/js/11.1f3b1c9b.chunk.js",
+    "static/js/11.1f3b1c9b.chunk.js.map": "/demo-box/static/js/11.1f3b1c9b.chunk.js.map",
+    "index.html": "/demo-box/index.html",
+    "precache-manifest.7be49808683c1464422b863e9d4fccb2.js": "/demo-box/precache-manifest.7be49808683c1464422b863e9d4fccb2.js",
+    "service-worker.js": "/demo-box/service-worker.js",
+    "static/js/7.90c5f49d.chunk.js.LICENSE.txt": "/demo-box/static/js/7.90c5f49d.chunk.js.LICENSE.txt",
+    "static/media/README.md": "/demo-box/static/media/README.fa9e2935.md"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.5e47ddc2.js",
+    "static/js/7.90c5f49d.chunk.js",
+    "static/js/main.8a2fce9f.chunk.js"
+  ]
+}
