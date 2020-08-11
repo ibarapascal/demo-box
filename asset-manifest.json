@@ -10,8 +10,8 @@
     "static/js/3.1478c5c2.chunk.js.map": "/demo-box/static/js/3.1478c5c2.chunk.js.map",
     "static/js/4.c94604d6.chunk.js": "/demo-box/static/js/4.c94604d6.chunk.js",
     "static/js/4.c94604d6.chunk.js.map": "/demo-box/static/js/4.c94604d6.chunk.js.map",
-    "main.js": "/demo-box/static/js/main.8a2fce9f.chunk.js",
-    "main.js.map": "/demo-box/static/js/main.8a2fce9f.chunk.js.map",
+    "main.js": "/demo-box/static/js/main.9ec12f96.chunk.js",
+    "main.js.map": "/demo-box/static/js/main.9ec12f96.chunk.js.map",
     "runtime-main.js": "/demo-box/static/js/runtime-main.5e47ddc2.js",
     "runtime-main.js.map": "/demo-box/static/js/runtime-main.5e47ddc2.js.map",
     "static/js/7.90c5f49d.chunk.js": "/demo-box/static/js/7.90c5f49d.chunk.js",
@@ -25,7 +25,7 @@
     "static/js/11.1f3b1c9b.chunk.js": "/demo-box/static/js/11.1f3b1c9b.chunk.js",
     "static/js/11.1f3b1c9b.chunk.js.map": "/demo-box/static/js/11.1f3b1c9b.chunk.js.map",
     "index.html": "/demo-box/index.html",
-    "precache-manifest.4bd336507360c42a023b61353ddb383a.js": "/demo-box/precache-manifest.4bd336507360c42a023b61353ddb383a.js",
+    "precache-manifest.2aaa141bd8a9ed19e380e55c5bb11b40.js": "/demo-box/precache-manifest.2aaa141bd8a9ed19e380e55c5bb11b40.js",
     "service-worker.js": "/demo-box/service-worker.js",
     "static/js/7.90c5f49d.chunk.js.LICENSE.txt": "/demo-box/static/js/7.90c5f49d.chunk.js.LICENSE.txt",
     "static/media/README.md": "/demo-box/static/media/README.fa9e2935.md"
@@ -33,6 +33,6 @@
   "entrypoints": [
     "static/js/runtime-main.5e47ddc2.js",
     "static/js/7.90c5f49d.chunk.js",
-    "static/js/main.8a2fce9f.chunk.js"
+    "static/js/main.9ec12f96.chunk.js"
   ]
 }
