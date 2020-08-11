@@ -70,6 +70,17 @@ export const RightSidebar = () => {
   process.env.NODE_ENV === 'development' &&
     console.log('dev:right: ' + currentName);
 
+  const acquireDate = () => {
+    const record = data?.updateDate;
+    if (record) {
+      const offset = record.getTimezoneOffset();
+      return new Date(record.getTime() - offset * 60 * 1000)
+        .toISOString()
+        .split('T')[0];
+    } else {
+      return 'No date record.';
+    }
+  };
   const stepsList = [
     {
       id: '1',
@@ -81,11 +92,7 @@ export const RightSidebar = () => {
       id: '2',
       label: 'Updated Date',
       icon: <UpdateIcon />,
-      content: (
-        <Typography>
-          {data?.updateDate.toISOString().split('T')[0].toString()}
-        </Typography>
-      ),
+      content: <Typography>{acquireDate()}</Typography>,
     },
     {
       id: '3',
