@@ -110,9 +110,14 @@ class App extends React.Component<Props, State> {
         <Main moduleNameList={modules.map(x => x.name)}>
           <Switch>
             {modules.map(x => (
-              <Route exact path={`/${x.name}`} component={x.m} key={x.name} />
+              <Route
+                exact
+                path={`/demo-box/${x.name}`}
+                component={x.m}
+                key={x.name}
+              />
             ))}
-            {modules.length !== 0 && <Redirect to='/GettingStarted' />}
+            {modules.length !== 0 && <Redirect to='/demo-box/GettingStarted' />}
           </Switch>
         </Main>
         <Dialog open={isDialogOpen()} onClose={onDialogClose}>

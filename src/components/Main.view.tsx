@@ -169,7 +169,7 @@ const VerticalTabs = ({ child, moduleNameList }: TabsProps) => {
           <Tab
             label={x.replace(/([A-Z])/g, ' $1').trim()}
             component={Link}
-            to={`/${x}`}
+            to={`/demo-box/${x}`}
             key={idx}
             {...generateProps(idx)}
           />
