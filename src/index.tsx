@@ -6,7 +6,7 @@ import {
   useSelector
 } from 'react-redux';
 import {
-  BrowserRouter,
+  HashRouter,
   Redirect,
   Route,
   Switch
@@ -63,9 +63,9 @@ class App extends React.Component<Props, State> {
     return (
       <Provider store={store}>
         <ThemeProvider theme={theme}>
-          <BrowserRouter>
+          <HashRouter>
             <this.ContentRender />
-          </BrowserRouter>
+          </HashRouter>
         </ThemeProvider>
       </Provider>
     );
@@ -110,14 +110,9 @@ class App extends React.Component<Props, State> {
         <Main moduleNameList={modules.map(x => x.name)}>
           <Switch>
             {modules.map(x => (
-              <Route
-                exact
-                path={`/demo-box/${x.name}`}
-                component={x.m}
-                key={x.name}
-              />
+              <Route exact path={`/${x.name}`} component={x.m} key={x.name} />
             ))}
-            {modules.length !== 0 && <Redirect to='/demo-box/GettingStarted' />}
+            {modules.length !== 0 && <Redirect to='/GettingStarted' />}
           </Switch>
         </Main>
         <Dialog open={isDialogOpen()} onClose={onDialogClose}>
