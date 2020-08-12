@@ -131,5 +131,6 @@ class App extends React.Component<Props, State> {
   };
 }
 
+document.body.style.overflowY = 'hidden';
 const rootElement = document.getElementById('root');
 render(<App />, rootElement);

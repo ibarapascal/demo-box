@@ -98,7 +98,11 @@ const Header = (props: CardProps) => {
     'github',
   );
   const onClickIconButton = () => {
-    window.open('https://github.com/ibarapascal/demo-box', '_blank');
+    window.open(
+      'https://github.com/ibarapascal/demo-box',
+      '_blank',
+      'noopener,noreferrer',
+    );
   };
   return (
     <AppBar position='static' className={classes.headerRoot}>
