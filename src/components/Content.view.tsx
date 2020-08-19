@@ -18,6 +18,12 @@ const useStyles = makeStyles(theme => ({
     '&::-webkit-scrollbar-thumb': {
       background: 'linear-gradient(45deg, #F50057 10%, #FF8E53 90%)',
     },
+    '& iframe': {
+      border: '1px solid #DDDDDD !important',
+      borderLeft: '2px solid #FF8E53 !important',
+      marginTop: '1em',
+      marginBottom: '1em',
+    },
   },
   markdownPre: {
     border: '1px solid #DDDDDD',
@@ -64,6 +70,12 @@ export const MarkdownContent = ({ path }: MarkdownContentProps) => {
       options={{
         overrides: {
           pre: {
+            component: '',
+            props: {
+              className: `${classes.markdownPre}`,
+            },
+          },
+          iframe: {
             component: '',
             props: {
               className: `${classes.markdownPre}`,
