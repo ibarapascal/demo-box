@@ -90,6 +90,13 @@ const Component = () => {
 )
 ```
 
+<iframe src="https://codesandbox.io/embed/react-callback-demo2-b44xg?fontsize=14&hidenavigation=1&theme=light"
+  style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+  title="react-callback-demo2"
+  allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+></iframe>
+
 Another way is only to expose callback with its params the updated props data, which means the data update logic would be implemented inside the component we built.
 
 <img width="521" alt="スクリーンショット 2020-08-03 10 28 13" src="https://user-images.githubusercontent.com/30466424/89137766-34624700-d574-11ea-8069-1276e753178c.png">
@@ -111,6 +118,13 @@ const Component = () => {
   }
 )
 ```
+
+<iframe src="https://codesandbox.io/embed/react-callback-demo3-ddpv0?fontsize=14&hidenavigation=1&theme=light"
+  style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+  title="react-callback-demo3"
+  allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+></iframe>
 
 Basically it depends, based on the design demand or the functions of the component, there are different approaches. The scalability and the position of the component inside the tree would also be put into consideration.
 
@@ -146,50 +160,12 @@ To orgnize components code by design as demand, based on the natural convergence
 
 <img width="598" alt="スクリーンショット 2020-08-03 10 28 32" src="https://user-images.githubusercontent.com/30466424/89137787-417f3600-d574-11ea-9d46-e3f8fd56d05c.png">
 
-```tsx
-const EventContext = React.createContext<ParentEvents>({});
-
-const Parent = ({p1, p2, events}: ParentProps) => {
-  // ...
-  const childProps: ChildProps = {
-    // ...
-  }
-  return (
-    <EventContext.Provider value={{ ...events }}>
-      <SomeOtherComponent />
-      <Child {...childProps} />
-    </EventContext.Provider>
-  )
-}
-
-const Child = ({cp1, cp2, ...grandChildProps}: ChildProps) => {
-  const events = React.useContext(EventContext);
-  // Used inside other local events.
-  const onClick = () => {
-    events?.onClickAddColumn && events.onClickAddColumn(params);
-  }
-  return (
-    <>
-      <button onClick={onClick} />
-      {list.map(x => (
-        <GrandChild {...grandChildProps} />
-      ))}
-    </>
-  )
-}
-
-const GrandChild = ({gp1, gp2}: GrandChildProps) => {
-  const events = React.useContext(EventContext);
-  const {
-    onClickRemoveRow: (params: CustomizedParams) => () => void,
-    // ...other events' default defination
-  } = events;
-  // Directly bound to element events.
-  return (
-    <button onClick={onClickRemoveRow(params)}>
-  )
-}
-```
+<iframe src="https://codesandbox.io/embed/react-callback-demo5-t8090?fontsize=14&hidenavigation=1&theme=light"
+  style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+  title="react-callback-demo5"
+  allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+></iframe>
 
 The nesting analysis scope won't bother since we can nesting the local provider in the tree(subtree). [docs#contextprovider](https://reactjs.org/docs/context.html#contextprovider)
 
