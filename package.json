@@ -24,7 +24,7 @@
   "devDependencies": {
     "@types/gh-pages": "3.0.0",
     "@types/markdown-to-jsx": "6.11.1",
-    "@types/node": "13.11.1",
+    "@types/node": "13.13.15",
     "@types/react": "16.9.38",
     "@types/react-dom": "16.9.8",
     "@types/react-redux": "7.1.9",
