@@ -10,7 +10,7 @@
     },
     {
       "updateTypes": ["minor", "patch", "pin", "digest"],
-      "schedule": ["monthly"],
+      "schedule": ["every weekend"],
       "automerge": true
     }
   ]
