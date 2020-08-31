@@ -48,4 +48,12 @@ export const PageRegister: Array<DataItem> = [
     updateDate: new Date('2020/08/31'),
     singleMd: false,
   },
+  {
+    title: 'CardChessPassGobang',
+    type: 'demo',
+    tags: ['react', 'game', 'gobang', 'card chess'],
+    stars: 4,
+    updateDate: new Date('2020/08/31'),
+    singleMd: false,
+  },
 ];
