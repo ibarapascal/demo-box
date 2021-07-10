@@ -1769,10 +1769,10 @@
     "@types/history" "*"
     "@types/react" "*"
 
-"@types/react-star-rating-component@1.4.0":
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/@types/react-star-rating-component/-/react-star-rating-component-1.4.0.tgz#68b097c700c0d54fd7fd707abec2a3d17c52c0e4"
-  integrity sha512-ZpYYZFTcyvH/aWfvPp6A5ayLV5/AyR8lW8XqDusQwRmk5GJKoyo9gYIL8jb0QBIhoBrGlBkyQ41lAXIjZyEmNA==
+"@types/react-star-rating-component@1.4.1":
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/@types/react-star-rating-component/-/react-star-rating-component-1.4.1.tgz#31cc3a12455bb4f8650e44dc4fa0222125ff6739"
+  integrity sha512-f4rKKGvS9//wr2mjsT2Ol3N7tgV3DPmu4RZRp2dabEvYukHDx5tIjXecnEZGxpdU6HszKkvbpcy4kPq5VrAqew==
   dependencies:
     "@types/react" "*"
 
