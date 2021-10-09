@@ -28,7 +28,7 @@
     "@types/react": "16.14.16",
     "@types/react-dom": "16.9.14",
     "@types/react-redux": "7.1.19",
-    "@types/react-router-dom": "5.3.0",
+    "@types/react-router-dom": "5.3.1",
     "@types/react-star-rating-component": "1.4.1",
     "@types/uuid": "8.3.1",
     "@typescript-eslint/eslint-plugin": "4.0.1",
