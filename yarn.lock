@@ -4498,10 +4498,10 @@ escodegen@^1.11.0, escodegen@^1.9.1:
   optionalDependencies:
     source-map "~0.6.1"
 
-eslint-config-alloy@3.7.1:
-  version "3.7.1"
-  resolved "https://registry.yarnpkg.com/eslint-config-alloy/-/eslint-config-alloy-3.7.1.tgz#315de2151c6870a207558c290f369333900d413a"
-  integrity sha512-pmEBnWDQ46INOx/y41UtEctwZddGA0UDWLBBTyNFsxZnElTEiWkGlupKxjKQb32XDMJx07WAlK2PztBr631dNQ==
+eslint-config-alloy@4.4.0:
+  version "4.4.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-alloy/-/eslint-config-alloy-4.4.0.tgz#0ff7268fdaa3b886f8bfb33833b09c389ef952d4"
+  integrity sha512-yWG9T+ufc7V5EDg+7z1VEBi9wX259uWR73pGhTGx+FkPqlO3gdvH0kxtzuirEweJ9nXhTtMiArPcfS24VvJe2A==
 
 eslint-config-prettier@6.15.0:
   version "6.15.0"
