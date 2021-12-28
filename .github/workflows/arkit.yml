@@ -31,5 +31,5 @@ jobs:
             github-token: ${{secrets.CI_TOKEN}}
             script: |
               github.rest.issues.createComment({
-                body: ${{ fromJSON(steps.imgur_step.outputs.markdown_urls)[0] }}
+                body: ${{ toJson(steps.imgur_step.outputs.markdown_urls)[0] }}
               })
