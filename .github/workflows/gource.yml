@@ -16,7 +16,9 @@ jobs:
           node-version: 17
           cache: yarn
       - name: Install gource
-        run: sudo apt-get install gource
+        run: |
+          sudo apt-get install gource
+          sudo apt-get install libsdl1.2debian:i386
       - name: Install ffmpeg
         uses: FedericoCarboni/setup-ffmpeg@v1
         id: setup-ffmpeg
