@@ -26,9 +26,10 @@ jobs:
         with:
           path: ./components.png
           client_id: ${{secrets.IMGUR_CLIENT_ID}}
-          uses: github-actions-up-and-running/pr-comment@v1.0.1
+          uses: actions/github-script@v5
           with:
-            repo-token: ${{ secrets.GITHUB_TOKEN }}
-            message: |
-              The components dependencies visualization powered by Arkit
-              ${{ fromJSON(steps.imgur_step.outputs.markdown_urls)[0] }}
+            github-token: ${{secrets.GITHUB_TOKEN}}
+            script: |
+              github.rest.issues.createComment({
+                body: ${{ fromJSON(steps.imgur_step.outputs.markdown_urls)[0] }}
+              })
