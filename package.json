@@ -65,6 +65,7 @@
     "build": "react-scripts build",
     "deploy": "gh-pages -d build",
     "eject": "react-scripts eject",
+    "gource": "sh ./gource.sh",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "predeploy": "yarn build",
     "start": "react-scripts start",
