@@ -1,3 +1,4 @@
+name: Arkit
 on:
   pull_request:
     branches:
