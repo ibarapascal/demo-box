@@ -11,13 +11,3 @@ jobs:
           node-version: '13.x'
       - run: yarn
       - run: yarn lint
-  docker:
-    runs-on: ubuntu-latest
-    name: Run docker build
-    steps:
-      - uses: actions/checkout@v1
-      - uses: actions/setup-node@v1
-        with:
-          node-version: '13.x'
-      - run: yarn
-      - run: yarn build
