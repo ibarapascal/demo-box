@@ -9,21 +9,22 @@ jobs:
   comment:
     runs-on: ubuntu-latest
     steps:
-      - name: Create arkit image
+      - name: Checkout
         uses: actions/checkout@v2
+      - name: Create the Arkit image
         uses: actions/setup-node@v2
         with:
           node-version: 17
           cache: yarn
-        run: yarn
-        run: yarn arkit:components
+        run: |
+          yarn
+          yarn arkit:components
       - name: Upload the image
         uses: devicons/public-upload-to-imgur@v2.2.1
         id: imgur_step
         with:
-          path: ./components.png 
-          client_id: ${{secrets.IMGUR_CLIENT_ID}} 
-        - name: Comment on the PR about the result
+          path: ./components.png
+          client_id: ${{secrets.IMGUR_CLIENT_ID}}
           uses: github-actions-up-and-running/pr-comment@v1.0.1
           env:
             IMG_URL: ${{ fromJSON(steps.imgur_step.outputs.imgur_urls)[0] }}
