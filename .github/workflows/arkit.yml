@@ -25,7 +25,7 @@ jobs:
         uses: devicons/public-upload-to-imgur@v2.2.1
         id: imgur_step
         with:
-          path: ./components.png
+          path: ./components.svg
           client_id: ${{secrets.IMGUR_CLIENT_ID}}
           uses: actions/github-script@v5
           script: |
