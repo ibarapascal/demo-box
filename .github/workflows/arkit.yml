@@ -27,9 +27,7 @@ jobs:
           path: ./components.png
           client_id: ${{secrets.IMGUR_CLIENT_ID}}
           uses: actions/github-script@v5
-          with:
-            github-token: ${{secrets.CI_TOKEN}}
-            script: |
-              github.rest.issues.createComment({
-                body: ${{ steps.imgur_step.outputs.markdown_urls[0] }}
-              })
+          script: |
+            github.rest.issues.createComment({
+              body: ${{ fromJSON(steps.imgur_step.outputs.markdown_urls)[0] }}
+            })
