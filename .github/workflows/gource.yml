@@ -18,7 +18,7 @@ jobs:
       - name: Install gource
         run: |
           sudo apt-get install gource
-          sudo apt-get install libsdl1.2debian:i386
+          sudo apt-get install ia32-libs-sdl
       - name: Install ffmpeg
         uses: FedericoCarboni/setup-ffmpeg@v1
         id: setup-ffmpeg
