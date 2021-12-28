@@ -27,11 +27,8 @@ jobs:
           path: ./components.png
           client_id: ${{secrets.IMGUR_CLIENT_ID}}
           uses: github-actions-up-and-running/pr-comment@v1.0.1
-          env:
-            IMG_URL: ${{ fromJSON(steps.imgur_step.outputs.imgur_urls)[0] }}
-            MESSAGE: |
-              The components dependencies visualization powered by Arkit
-              ![Image]({0})
           with:
             repo-token: ${{ secrets.GITHUB_TOKEN }}
-            message: ${{format(env.MESSAGE, env.IMG_URL)}}
+            message: |
+              The components dependencies visualization powered by Arkit
+              ${{ fromJSON(steps.imgur_step.outputs.markdown_urls)[0] }}
