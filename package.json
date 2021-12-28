@@ -61,7 +61,7 @@
   "homepage": "https://ibarapascal.github.io/demo-box",
   "private": true,
   "scripts": {
-    "arkit:components": "npx arkit -d src -o ./components.svg",
+    "arkit:components": "npx arkit -d src -o ./components.png",
     "build": "react-scripts build",
     "deploy": "gh-pages -d build",
     "eject": "react-scripts eject",
